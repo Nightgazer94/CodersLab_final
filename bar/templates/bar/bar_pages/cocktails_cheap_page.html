@@ -1,0 +1,35 @@
+{% extends "bar/bar_base.html" %}
+
+{% load static %}
+
+{% block title %}Cocktails{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="left">
+            <div class="menu">
+                {% for cheap in cheap_cocktails %}
+                    <div class="menu-item">
+                        <div class="price-row">
+                            <h3 class="item-name">{{ cheap.name }}</h3>
+                            <p class="item-price">{{ cheap.price }} $</p>
+                        </div>
+                        <div class="item-description">
+                            {% for ing in cheap.ingredients.all %}
+                                {{ ing.name }}{% if not forloop.last %}, {% endif %}
+                            {% empty %}
+                                <p>No ingredients.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button style="font-size: 20px"><a href="{% url 'cocktails' %}">Back to Cocktails</a></button>
+            {{ CREATED_BY|linebreaksbr }}
+        </div>
+        <div class="right">
+            <img src="{% static 'bar/images/cheap_cocktails_background.jpg' %}" alt="">
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,41 @@
+{% extends 'bar/bar_base.html' %}
+
+{% load static %}
+
+{% block title %}The Bar{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="left">
+        <H1>Welcome to The Bar</H1>
+        <p>At The Bar, we believe every moment deserves a touch of excellence.
+            From the carefully selected ingredients in our cocktails to the warm,
+            inviting atmosphere, we strive to create experiences that linger long
+            after the last sip. Whether you’re gathering with friends, celebrating
+            a special occasion, or simply unwinding after a long day, our team is
+            here to make every visit memorable.</p>
+        <h2>What is The Bar?</h2>
+        <p>The Bar is more than just a place to enjoy drinks—it’s a destination
+            for connection and discovery. Our passion for craft cocktails drives
+            us to blend classic techniques with innovative twists, sourcing fresh,
+            seasonal produce and top-shelf spirits. Sit back in our cozy lounge or
+            take a seat at the bar, where our expert mixologists will guide you
+            through signature creations and timeless favorites, all served with
+            a smile.</p>
+        <h2>Try ours specialities</h2>
+        <p>Explore our curated selection of house specialties, each designed to
+            showcase unique flavor profiles and unexpected combinations.
+            From the smoky warmth of our Smoked Citrus Old Fashioned to the bright,
+            herbal notes of the Garden Gin Fizz, there’s something for every palate.
+            Don’t miss our rotating seasonal feature—a surprise cocktail that reflects
+            the best produce of the moment</p>
+
+        {{ CREATED_BY|linebreaksbr }}
+    </div>
+
+    <div class="right">
+        <img src="{% static 'bar/images/Bar_picture_AI_generated.png' %}" alt="Bar picture">
+    </div>
+
+</div>
+{% endblock %}

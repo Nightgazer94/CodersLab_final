@@ -1,0 +1,12 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Category Detail – {{ category.name }}{% endblock %}
+
+{% block content %}
+    <div class="category-detail-container">
+        <h1>{{ category.name }}</h1>
+        <p><strong>Category Name:</strong>{{ category.name }}</p><br><br>
+        <button class="btn btn-update"><a href="{% url 'list-category' %}">Back</a></button>
+    </div>
+
+{% endblock %}

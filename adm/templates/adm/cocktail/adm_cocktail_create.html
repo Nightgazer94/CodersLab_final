@@ -1,0 +1,82 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Create Cocktail{% endblock %}
+
+{% block content %}
+<div class="category-list-container">
+    <h1>Create new cocktail</h1>
+
+    <form method="post" enctype="multipart/form-data" novalidate class="form-container">
+        {% csrf_token %}
+
+        <div class="form-group">
+            {{ form.name.label_tag }}<br>
+            {{ form.name }}
+            {% if form.name.errors %}
+                <div class="field-error">{{ form.name.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.price.label_tag }}<br>
+            {{ form.price }}
+            {% if form.price.errors %}
+                <div class="field-error">{{ form.price.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.description.label_tag }}<br>
+            {{ form.description }}
+            {% if form.description.errors %}
+                <div class="field-error">{{ form.description.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.ingredients.label_tag }}<br>
+            <div class="ingredients-grid">
+                {% for checkbox in form.ingredients %}
+                    <label class="ingredient-item">
+                        {{ checkbox.tag }} {{ checkbox.choice_label }}
+                    </label>
+                {% endfor %}
+            </div>
+            {% if form.ingredients.errors %}
+                <div class="field-error">{{ form.ingredients.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.category.label_tag }}<br>
+            {{ form.category }}
+            {% if form.category.errors %}
+                <div class="field-error">{{ form.category.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.base_alcohol.label_tag }}<br>
+            {{ form.base_alcohol }}
+            {% if form.base_alcohol.errors %}
+                <div class="field-error">{{ form.base_alcohol.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            {{ form.image.label_tag }}<br>
+            {{ form.image }}
+            {% if form.image.errors %}
+                <div class="field-error">{{ form.image.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-update">Save</button>
+            <a href="{% url 'list-cocktail' %}" class="btn btn-delete">Back</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+

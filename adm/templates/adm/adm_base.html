@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'adm/css/nav_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'adm/css/buttons.css' %}">
+    <link rel="stylesheet" href="{% static 'adm/css/items.css' %}">
+    <title>{% block title %} You forget enter title {% endblock %}</title>
+</head>
+<body>
+{% block navbar %}
+    <div class="navbar">
+        <a href="{% url 'list-category' %}">Categories</a>
+        <a href="{% url 'list-ingredient' %}">Cocktail Ingredients</a>
+        <a href="{% url 'list-cocktail' %}">Cocktails</a>
+        <a href="{% url 'list-food' %}">Food</a>
+        <a href="{% url 'list-water_pipe' %}">Water Pipes</a>
+        <a class="logout-link" href="#" style="color: #ff0000">Log out</a>
+    </div>
+
+    <form id="logout-form" action="{% url 'logout' %}" method="post" style="display:none;">
+      {% csrf_token %}
+    </form>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+    <footer style="text-align:end; padding:1em; font-size:.9em; color:#666;">
+        {{ CREATED_BY|linebreaksbr }}
+    </footer>
+{% endblock %}
+
+<script src="{% static 'adm/js/logout.js' %}"></script>
+</body>
+</html>
+

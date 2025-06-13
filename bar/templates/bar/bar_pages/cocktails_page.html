@@ -1,0 +1,95 @@
+{% extends 'bar/bar_base.html' %}
+{% load static %}
+
+{% block title %}Cocktails{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="left">
+            <h3>Gin Based Cocktails</h3>
+            <div class="menu">
+                {% for cocktail in cocktails_gin %}
+                    <a href="{{ cocktail.get_absolute_url }}" class="menu-item-link">
+                        <div class="menu-item">
+                            <div class="price-row">
+                                <h3 class="item-name">{{ cocktail.name }}</h3>
+                                <p class="item-price">{{ cocktail.price }} $</p>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+
+            <h3>Rum Based Cocktails</h3>
+            <div class="menu">
+                {% for cocktail in cocktails_rum %}
+                    <a href="{{ cocktail.get_absolute_url }}" class="menu-item-link">
+                        <div class="menu-item">
+                            <div class="price-row">
+                                <h3 class="item-name">{{ cocktail.name }}</h3>
+                                <p class="item-price">{{ cocktail.price }} $</p>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+
+            <h3>Vodka Based Cocktails</h3>
+            <div class="menu">
+                {% for cocktail in cocktails_vodka %}
+                    <a href="{{ cocktail.get_absolute_url }}" class="menu-item-link">
+                        <div class="menu-item">
+                            <div class="price-row">
+                                <h3 class="item-name">{{ cocktail.name }}</h3>
+                                <p class="item-price">{{ cocktail.price }} $</p>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+
+            <h3>Tequila Based Cocktails</h3>
+            <div class="menu">
+                {% for cocktail in cocktails_tequila %}
+                    <a href="{{ cocktail.get_absolute_url }}" class="menu-item-link">
+                        <div class="menu-item">
+                            <div class="price-row">
+                                <h3 class="item-name">{{ cocktail.name }}</h3>
+                                <p class="item-price">{{ cocktail.price }} $</p>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+
+            <h3>Whisky/Whiskey/Bourbon Based Cocktails</h3>
+            <div class="menu">
+                {% for cocktail in cocktails_whisky %}
+                    <a href="{{ cocktail.get_absolute_url }}" class="menu-item-link">
+                        <div class="menu-item">
+                            <div class="price-row">
+                                <h3 class="item-name">{{ cocktail.name }}</h3>
+                                <p class="item-price">{{ cocktail.price }} $</p>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+            <button class="btn-update"><a href="{% url 'cheap-cocktails' %}">Cocktails into 8$</a></button>
+            {{ CREATED_BY|linebreaksbr }}
+        </div>
+        <div class="right">
+            <img src="{% static 'bar/images/cocktail_background.jpg' %}" alt="">
+        </div>
+    </div>
+{% endblock %}
