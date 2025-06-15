@@ -16,8 +16,6 @@ ENV/
 *.sql
 *.dump
 
-../media/
-
 staticfiles/
 
 .vscode/
@@ -26,3 +24,5 @@ staticfiles/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+.env
