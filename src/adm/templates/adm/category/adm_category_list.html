@@ -1,0 +1,35 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Categories List{% endblock %}
+
+{% block content %}
+    <div class="category-list-container">
+        <h1>List of categories</h1>
+        <button>
+            <a href="{% url 'create-category' %}">+ Create new category</a>
+        </button>
+
+        <ul class="category-list">
+            {% for cat in categories %}
+                <li>
+                    <span class="cat-name">
+                        <a href="{% url 'category-detail' cat.pk %}">
+                            {{ cat.name }}
+                        </a>
+                    </span>
+
+                    <div class="cat-actions">
+                        <a class="btn btn-update" href="{% url 'update-category' cat.pk %}">
+                            Update
+                        </a>
+                        <a class="btn btn-delete" href="{% url 'delete-category' cat.pk %}">
+                            Delete
+                        </a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-state">No categories.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

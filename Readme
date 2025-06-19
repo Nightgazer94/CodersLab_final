@@ -1,0 +1,84 @@
+# Bar & Admin Portal
+
+A simple Django web application for a bar, featuring both a public menu and an admin panel.
+
+## Overview
+
+Bar Module: Public interface where visitors can browse cocktails, food items, and water pipes.
+
+Admin Module: Secure dashboard for administrators to manage categories, ingredients, cocktails, food, and water pipes.
+
+Access: To reach the admin panel, append /adm/ to the base URL (e.g., Base url of page/adm/).
+
+## Features
+
+* Public (Bar)
+  * List and detail views for cocktails, food, and water pipes
+  * "Cheap" filters to show items under a specified price
+  * Contact page with a location map
+
+* Admin
+  * Create, read, update, delete (CRUD) operations for all models
+  * Authentication required to access admin views
+
+## Requirements
+
+* Python 3.9 or newer
+* Django 5.2.1
+* PostgreSQL database
+* Python packages (requirements.txt)
+
+## Installation
+
+1. Clone the repository
+
+   git clone https://github.com/Nightgazer94/CodersLab_final.git
+   cd CodersLab_final/src
+
+2. Set up a virtual environment
+
+   python -m venv ../venv
+   ../venv/Scripts/activate  # Windows
+
+3. Install dependencies
+
+   pip install -r requirements.txt
+
+4. Configure the database
+
+   Open main/settings.py and set your database credentials in the DATABASES section.
+
+5. Apply database migrations
+
+   python manage.py migrate
+
+6. Create a superuser
+
+   python manage.py createsuperuser
+
+7. Run the development server
+
+   python manage.py runserver
+
+   Open your browser at:
+   http://127.0.0.1:8000/ – Public site
+   http://127.0.0.1:8000/adm/ – Admin dashboard
+
+## URL Reference
+
+* Public
+  * / – Homepage
+  * /cocktails/ – Cocktails list
+  * /cocktails/<id>/ – Cocktail details
+  * /food/ – Food list
+  * /water_pipe/ – Water pipes list
+  * /contact/ – Contact page
+
+* Admin (requires login)
+  * /adm/ – Dashboard
+  * /adm/adm_categories – Manage categories
+  * /adm/adm_cocktails – Manage cocktails
+  * similarly for ingredients, food, water pipes
+
+Author
+Maximilián Barjak Malček

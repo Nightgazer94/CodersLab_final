@@ -1,0 +1,31 @@
+{% extends 'bar/bar_base.html' %}
+
+{% load static %}
+
+{% block title %}Food{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="left">
+            <h3>Our homemade food</h3>
+            <div class="menu">
+                {% for food in foods %}
+                    <div class="menu-item">
+                        <div class="price-row">
+                            <h3 class="item-name">{{ food.name }}</h3>
+                            <p class="item-price">{{ food.price }} $</p>
+                        </div>
+                        <p class="item-description">{{ food.description }}</p>
+                    </div>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+            <button class="btn-update"><a href="{% url 'cheap-food' %}">Food into 10$</a></button>
+            {{ CREATED_BY|linebreaksbr }}
+        </div>
+        <div class="right">
+            <img src="{% static 'bar/images/food_background.jpg' %}" alt="">
+        </div>
+    </div>
+{% endblock %}

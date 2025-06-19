@@ -1,0 +1,35 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Cocktails List{% endblock %}
+
+{% block content %}
+    <div class="category-list-container">
+        <h1>List of cocktails</h1>
+        <button>
+            <a href="{% url 'create-cocktail' %}">+ Create new cocktail</a>
+        </button>
+
+        <ul class="category-list">
+            {% for cocktail in cocktails %}
+                <li>
+                    <span class="cat-name">
+                        <a href="{% url 'cocktail-detail' cocktail.pk %}">
+                            {{ cocktail.name }}
+                        </a>
+                    </span>
+
+                    <div class="cat-actions">
+                        <a class="btn btn-update" href="{% url 'update-cocktail' cocktail.pk %}">
+                            Update
+                        </a>
+                        <a class="btn btn-delete" href="{% url 'delete-cocktail' cocktail.pk %}">
+                            Delete
+                        </a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-state">No cocktails.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

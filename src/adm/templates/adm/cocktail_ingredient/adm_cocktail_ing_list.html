@@ -1,0 +1,33 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Cocktail Ingredients List{% endblock %}
+
+{% block content %}
+    <div class="category-list-container">
+        <h1>List of Cocktail Ingredients</h1>
+        <button>
+            <a href="{% url 'create-ingredient' %}">+ Create new ingredient</a>
+        </button>
+
+        <ul class="category-list">
+            {% for ing in cocktail_ingredients %}
+                <li>
+                    <span class="cat-name">
+                        <a href="{% url 'ingredient-detail' ing.pk %}">{{ ing.name }}</a>
+                    </span>
+
+                    <div class="cat-actions">
+                        <a class="btn btn-update" href="{% url 'update-ingredient' ing.pk %}">
+                            Update
+                        </a>
+                        <a class="btn btn-delete" href="{% url 'delete-ingredient' ing.pk %}">
+                            Delete
+                        </a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-state">No ingredients.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

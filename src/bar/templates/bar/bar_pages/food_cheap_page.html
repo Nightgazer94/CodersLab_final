@@ -1,0 +1,30 @@
+{% extends "bar/bar_base.html" %}
+
+{% load static %}
+
+{% block title %}Food{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="left">
+            <div class="menu">
+                {% for food in cheap_foods %}
+                    <div class="menu-item">
+                        <div class="price-row">
+                            <h3 class="item-name">{{ food.name }}</h3>
+                            <p class="item-price">{{ food.price }} $</p>
+                        </div>
+                        <p class="item-description">{{ food.description }}</p>
+                    </div>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+            <button><a href="{% url 'food' %}">Back</a></button>
+            {{ CREATED_BY|linebreaksbr }}
+        </div>
+        <div class="right">
+            <img src="{% static 'bar/images/cheap_food_background.jpg' %}" alt="">
+        </div>
+    </div>
+{% endblock %}<

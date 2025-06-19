@@ -1,0 +1,12 @@
+# Ignore virtual environment
+venv/
+
+# Ignore media
+media/
+
+# Ignore environment variables
+.env
+
+# __pycache__ and compiled Python files
+__pycache__/
+*.pyc

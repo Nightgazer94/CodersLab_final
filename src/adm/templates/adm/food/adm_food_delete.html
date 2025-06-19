@@ -1,0 +1,18 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Delete Confirm{% endblock %}
+
+{% block content %}
+<div class="category-list-container">
+    <h1>Confirm Food Deletion</h1>
+    <p>You really want to delete: <strong>{{ object.name }}</strong>?</p>
+
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-delete">Yes</button>
+            <a href="{% url 'list-food' %}" class="btn btn-update">No</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

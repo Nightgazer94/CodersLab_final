@@ -1,0 +1,37 @@
+{% extends 'adm/adm_base.html' %}
+{% block title %}{{ cocktail.name }} Detail{% endblock %}
+
+{% block content %}
+    <h1>{{ cocktail.name }}</h1>
+
+    {% if cocktail.image %}
+        <div class="cocktail-image">
+            <img
+                src="{{ cocktail.image.url }}"
+                alt="{{ cocktail.name }}"
+                style="max-width: 100%; height: auto;"
+            >
+        </div>
+    {% else %}
+        <p><strong>No picture</strong></p>
+    {% endif %}
+
+    <p><strong>Price:</strong> {{ cocktail.price }} $</p>
+    <p><strong>Description:</strong> {{ cocktail.description }}</p>
+    <p><strong>Base alcohol:</strong> {{ cocktail.base_alcohol }}</p>
+    <p><strong>Ingredients:</strong>
+        <ul>
+            {% for ing in cocktail.ingredients.all %}
+                <li>{{ ing.name }}</li>
+            {% empty %}
+                <li>(No ingredients)</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <p><strong>Category:</strong> {{ cocktail.category.name }}</p>
+
+    <br><br>
+    <button class="btn-update">
+        <a href="{% url 'list-cocktail' %}">Back</a><br>
+    </button><br><br>
+{% endblock %}

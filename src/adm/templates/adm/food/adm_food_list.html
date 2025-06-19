@@ -1,0 +1,33 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Food List{% endblock %}
+
+{% block content %}
+    <div class="category-list-container">
+        <h1>List of Food</h1>
+        <button>
+            <a href="{% url 'create-food' %}">+ Create new food</a>
+        </button>
+
+        <ul class="category-list">
+            {% for food in foods %}
+                <li>
+                    <span class="cat-name">
+                        <a href="{% url 'food-detail' food.pk %}">{{ food.name }}</a>
+                    </span>
+
+                    <div class="cat-actions">
+                        <a class="btn btn-update" href="{% url 'update-food' food.pk %}">
+                            Update
+                        </a>
+                        <a class="btn btn-delete" href="{% url 'delete-food' food.pk %}">
+                            Delete
+                        </a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-state">No food.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

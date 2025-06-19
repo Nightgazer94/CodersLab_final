@@ -1,0 +1,13 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Ingredient Detail – {{ ingredient.name }}{% endblock %}
+
+{% block content %}
+    <div class="ingredient-detail-container">
+        <h1>{{ ingredient.name }}</h1>
+
+        <p><strong>Ingredient Name: </strong>{{ ingredient.name }}</p><br><br>
+
+        <button class="btn-update"><a href="{% url 'list-ingredient' %}">Back</a></button>
+    </div>
+{% endblock %}

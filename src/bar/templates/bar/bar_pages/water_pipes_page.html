@@ -1,0 +1,43 @@
+{% extends 'bar/bar_base.html' %}
+{% load static %}
+{% block title %}Water pipes{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="left">
+            <h3>Water Pipes Light Tobacco</h3>
+            <div class="menu">
+                {% for pipe in water_pipes_light %}
+                    <div class="menu-item">
+                        <div class="price-row">
+                            <h3 class="item-name">{{ pipe.name }}</h3>
+                            <p class="item-price">{{ pipe.price }} $</p>
+                        </div>
+                        <p class="item-description">Flavour: {{ pipe.flavour }}</p>
+                     </div>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+
+            </div>
+            <h3>Water Pipes Dark Tobacco</h3>
+            <div class="menu">
+                {% for pipe in water_pipes_dark %}
+                    <div class="menu-item">
+                        <div class="price-row">
+                            <h3 class="item-name">{{ pipe.name }}</h3>
+                            <p class="item-price">{{ pipe.price }} $</p>
+                        </div>
+                        <p class="item-description">Flavour: {{ pipe.flavour }}</p>
+                     </div>
+                {% empty %}
+                    <p>Nothing.</p>
+                {% endfor %}
+            </div>
+            {{ CREATED_BY|linebreaksbr }}
+        </div>
+        <div class="right">
+            <img src="{% static 'bar/images/shisha_background.jpg' %}" alt="Shisha background">
+        </div>
+    </div>
+{% endblock %}

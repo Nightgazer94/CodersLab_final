@@ -1,0 +1,59 @@
+{% extends 'bar/bar_base.html' %}
+
+{% load static %}
+
+{% block title %}{{ cocktail.name }}{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="left">
+            <div class="category-list-container">
+                <h1>{{ cocktail.name }}</h1>
+
+                {% if cocktail.description %}
+                    <p class="item-description-detail">
+                        <strong>Description:</strong> {{ cocktail.description }}
+                    </p>
+                {% endif %}
+
+                <p class="item-ingredients-detail">
+                    <strong>Ingredients:</strong>
+                    {% if cocktail.ingredients.all %}
+                        {% for ingredient in cocktail.ingredients.all %}
+                            {{ ingredient.name }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            None
+                        {% endfor %}
+                    {% else %}
+                        None
+                    {% endif %}
+                </p>
+
+                <div class="price-row" style="margin-bottom: 12px;">
+                    <p class="item-price-detail">
+                        <strong>Price:</strong> {{ cocktail.price }} $
+                    </p>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button style="font-size: 20px">
+                    <a href="{% url 'cocktails' %}">Back to Cocktails</a><br>
+                </button>
+            </div>
+        {{ CREATED_BY|linebreaksbr }}
+        </div>
+
+        <div class="right">
+            {% if cocktail.image %}
+                <img
+                    src="{{ cocktail.image.url }}"
+                    alt="{{ cocktail.name }}"
+                >
+            {% else %}
+                <p style="text-align: center; padding: 20px; color: #666;">
+                    (No image available)
+                </p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

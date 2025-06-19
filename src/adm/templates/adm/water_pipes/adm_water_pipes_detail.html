@@ -1,0 +1,15 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Water Pipe Detail – {{ pipe.name }}{% endblock %}
+
+{% block content %}
+    <div class="waterpipe-detail-container">
+        <h1>{{ pipe.name }}</h1>
+        <p><strong>Price:</strong> {{ pipe.price }} $</p>
+        <p><strong>Flavour:</strong> {{ pipe.flavour }}</p>
+        <p><strong>Tobacco:</strong> {{ pipe.tobacco }}</p>
+        <p><strong>Category:</strong> {{ pipe.category.name }}</p><br><br>
+        <button class="btn-update"><a href="{% url 'list-water_pipe' %}">Back to list</a></button>
+    </div>
+
+{% endblock %}

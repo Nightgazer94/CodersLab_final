@@ -1,0 +1,33 @@
+{% extends 'adm/adm_base.html' %}
+
+{% block title %}Water Pipes List{% endblock %}
+
+{% block content %}
+    <div class="category-list-container">
+        <h1>List of Water Pipes</h1>
+        <button>
+            <a href="{% url 'create-water_pipe' %}">+ Create new Water pipe</a>
+        </button>
+
+        <ul class="category-list">
+            {% for pipe in water_pipes %}
+                <li>
+                    <span class="cat-name">
+                        <a href="{% url 'water-pipe-detail' pipe.pk %}">{{ pipe.name }}</a>
+                    </span>
+
+                    <div class="cat-actions">
+                        <a class="btn btn-update" href="{% url 'update-water_pipe' pipe.pk %}">
+                            Update
+                        </a>
+                        <a class="btn btn-delete" href="{% url 'delete-water_pipe' pipe.pk %}">
+                            Delete
+                        </a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="empty-state">No water pipes.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

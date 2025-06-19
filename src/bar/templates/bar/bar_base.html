@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'adm/css/nav_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'bar/css/menu.css' %}">
+    <title>{% block title %}You forget enter title{% endblock %}</title>
+</head>
+<body>
+{% block navbar %}
+    <div class="navbar">
+        <a href="{% url 'cocktails' %}">Cocktails</a>
+        <a href="{% url 'food' %}">Food</a>
+        <a href="{% url 'water-pipe' %}">Water pipes</a>
+        <a href="{% url 'main2' %}">Main page</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+</body>
+</html>
