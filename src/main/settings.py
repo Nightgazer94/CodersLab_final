@@ -8,6 +8,7 @@ load_dotenv(BASE_DIR / ".env")
 SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG") == "True"
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = 'https://coderslabfinal-production.up.railway.app/, https://127.0.0.1:8000'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
