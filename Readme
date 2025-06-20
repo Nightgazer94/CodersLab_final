@@ -1,4 +1,4 @@
-# Bar & Admin Portal
+# Bar & Admin App
 
 A simple Django web application for a bar, featuring both a public menu and an admin panel.
 
@@ -80,5 +80,4 @@ Access: To reach the admin panel, append /adm/ to the base URL (e.g., Base url o
   * /adm/adm_cocktails – Manage cocktails
   * similarly for ingredients, food, water pipes
 
-Author
-Maximilián Barjak Malček
+Author: Maximilián Barjak Malček
