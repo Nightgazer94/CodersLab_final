@@ -33,3 +33,18 @@ body {
     background-color: #34495e;
     border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+        white-space: normal;
+        overflow-x: visible;
+    }
+
+    .navbar a {
+        width: 100%;
+    }
+}
