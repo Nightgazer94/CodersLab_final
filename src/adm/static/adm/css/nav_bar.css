@@ -3,22 +3,22 @@ body {
     font-family: sans-serif;
     background-color: #ecf0f1;
     color: #2c3e50;
-    padding-top: 64px;
+    padding-top: 80px;
 }
 
 .navbar {
     background-color: #2c3e50;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 16px 24px;
-    gap: 24px;
+    gap: 16px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    white-space: nowrap;
-    overflow-x: auto;
+    white-space: normal;
     box-sizing: border-box;
 }
 
@@ -27,6 +27,7 @@ body {
     text-decoration: none;
     transition: background 0.3s;
     padding: 8px 12px;
+    flex-shrink: 0;
 }
 
 .navbar a:hover {
@@ -36,15 +37,13 @@ body {
 
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+        justify-content: center;
+        padding: 12px 16px;
         gap: 12px;
-        padding: 16px;
-        white-space: normal;
-        overflow-x: visible;
     }
 
     .navbar a {
-        width: 100%;
+        width: auto;
+        text-align: center;
     }
 }
