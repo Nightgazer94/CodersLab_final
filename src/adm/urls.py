@@ -25,7 +25,7 @@ from adm.views import (AMDMainPageView, CreateCategoryView, UpdateCategoryView,
                        UpdateFoodView, DeleteFoodView, WaterPipeListView, CreateWaterPipeView,
                        UpdateWaterPipeView, DeleteWaterPipeView, CocktailDetailView,
                        CategoryDetailView, CocktailIngredientDetailView, FoodDetailView,
-                       WaterPipeDetailView)
+                       WaterPipeDetailView, create_admin_view)
 
 
 urlpatterns = [
@@ -73,4 +73,6 @@ urlpatterns = [
     path('water_pipes/<int:pk>/delete/', DeleteWaterPipeView.as_view(), name='delete-water_pipe'),
 # Water pipes CRUD paths END
 
+
+    path("create-admin/", create_admin_view, name='create-admin'),
 ]
