@@ -49,9 +49,7 @@
                     alt="{{ cocktail.name }}"
                 >
             {% else %}
-                <p style="text-align: center; padding: 20px; color: #666;">
-                    (No image available)
-                </p>
+                <img src="{% static 'bar/images/cocktail_details_background.jpg' %}" alt="Cocktails">
             {% endif %}
         </div>
     </div>
