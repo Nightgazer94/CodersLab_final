@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import cloudinary_storage
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
@@ -24,8 +24,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'adm',
     'bar',
-    'cloudinary',
-    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -97,10 +95,3 @@ LOGOUT_REDIRECT_URL = 'login'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME' : 'ddvidt4em',
-    'API_KEY' : '923134766885563',
-    'API_SECRET' : 'qiBIzw-qyT4paRKZwsH1HrLHcRk',
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
