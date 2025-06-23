@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'adm',
     'bar',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -95,3 +97,10 @@ LOGOUT_REDIRECT_URL = 'login'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ddvidt4em',
+    'API_KEY': '136732879588392',
+    'API_SECRET': 'Yt046P-LW_q5Ho9zeyaECv-_cdw',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
