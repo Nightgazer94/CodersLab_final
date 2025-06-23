@@ -82,7 +82,7 @@ class Cocktail(models.Model):
     ingredients = models.ManyToManyField(CocktailIngredient)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     base_alcohol = models.CharField(choices=CHOICES_COCKTAIL, max_length=9, null=False)
-    image = models.ImageField(upload_to="images/", null=True, blank=True)
+    image = models.FileField(upload_to="images", null=True, blank=True)
 
     objects = CocktailManager()
 
